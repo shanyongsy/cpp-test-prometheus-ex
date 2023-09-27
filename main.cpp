@@ -2,7 +2,7 @@
 #include <iostream>
 #include <unistd.h> // 包含 getopt 函数的头文件
 
-#include "PrometheusMgr.h"
+#include <Prometheus/PrometheusMgr.h>
 
 int main(int argc, char* argv[]) {
     int port = 8080; // 默认端口号
@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
     }
     std::cout << "Port: " << port << std::endl;
 
-    PrometheusMgr::GetInstace().Init("瑶池", "GameServer_1", port);
+    PrometheusMgr::GetInstace().Init("瑶池", "GameServer_1", "localhost", port);
 
     for (;;) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
